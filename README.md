@@ -1,226 +1,124 @@
-Project: Blood Bank Management System
+<h1>Blood Bank Management System Overview</h1>
 
-Case Study: Blood Bank Management System
-Introduction: The Blood Bank Management System (BBMS) is designed to streamline and manage the
-various operations of a blood bank efficiently. This system is implemented using a relational database,
-and the following is a comprehensive case study that covers the database design and the Data Definition
-Language (DDL) and Data Manipulation Language (DML) statements used in the system.
-Database Design:
- BloodGroups Table:
- Holds information about different blood groups.
- Columns: BGroupID, GroupName.
- Donors Table:
- Stores details of blood donors.
-Columns: DonorID, FirstName, LastName, Age, Gender, BGroupID, ContactNumber,
-Email, MedicalReport, HemoglobinLevel, BloodPressure, DonarState, DonarAddress,
-LastDonationDate.
-Patients Table:
-Contains information about patients needing blood.
-Columns: PatientID, FirstName, LastName, Age, Gender, BGroupID, Disease,
-ContactNumber, Email, PatientState, PatientAddress, MedicalHistory, HemoglobinLevel,
-BloodPressure.
-BloodBanks Table:
-Stores data about different blood banks.
-Columns: BloodBankID, BloodBankName, BloodBankAddress, BloodBankContact.
-BloodStocks Table:
-Manages the stock of blood available in the blood bank.
-Columns: StockID, BGroupID, QuantityInMilliliters, ExpiryDate, DonorID.
-CrossMatch Table:
-Records cross-matching information between donors and patients.
-Columns: CrossMatchID, PatientID, DonorID, StockID, CrossMatchResult,
-CrossMatchDate, Remarks.
-BloodDonations Table:
-Tracks blood donations made by donors.
-Columns: DonationID, DonorID, PatientID, DonationDateTime, BGroupID,
-QuantityInMilliliters.
-DDL Statements:
-Defines the structure of the database and its tables.
-Example: CREATE TABLE BloodGroups (BGroupID INT, GroupName VARCHAR(5));
-DML Statements:
-Manages the data within the tables.
-Example: INSERT INTO BloodGroups(BGroupID, GroupName) VALUES (101, 'A+'), (102,
-'A-'), ...
-Use Cases:
-Donor Registration:
-New donors are added to the system using the Donors table.
-INSERT INTO Donors ...
-Blood Donation:
-Records blood donations made by donors.
-INSERT INTO BloodDonations ...
-Patient Admission:
-Adds patient details to the system when admitted.
-INSERT INTO Patients ...
-Cross-Matching:
-Cross-matching results are stored in the CrossMatch table.
-INSERT INTO CrossMatch ...
-Here is a bulleted list summarizing the SQL DDL statements for
-creating a Blood Bank Management System:
-DDL Statements Working Titles:
- Create Database
- Create BloodGroups Table
- Create Donors Table
- Alter Donors Table
- Create Patients, BloodBanks, BloodStocks, CrossMatch, and
-BloodDonations Tables
- Alter CrossMatch Table
- Delete a Column from CrossMatch Table
- Delete a Table
- Add Non-Clustered Index on BloodDonations Table
- Create Views
- Create Stored Procedures
- Create Triggers
- Create Functions
-BloodGroups Table
- BGroupID (Primary Key)
- GroupName
-Donors Table
- DonorID (Primary Key)
- FirstName
- LastName
- Age
- Gender
- BGroupID (Foreign Key)
- ContactNumber
- Email
- MedicalReport
- HemoglobinLevel
- BloodPressure
- DonarState
- DonarAddress
- LastDonationDate
-Patients Table
- PatientID (Primary Key)
- FirstName
- LastName
- Age
- Gender
- BGroupID (Foreign Key)
- Disease
- ContactNumber
- Email
- PatientState
- PatientAddress
- MedicalHistory
- HemoglobinLevel
- BloodPressure
-BloodBanks Table
- BloodBankID (Primary Key)
- BloodBankName
- BloodBankAddress
- BloodBankContact
- BloodStocks Table Columns:
- StockID (Primary Key)
- BGroupID (Foreign Key)
- QuantityInMilliliters
- ExpiryDate
- DonorID (Foreign Key)
-CrossMatch Table
- CrossMatchID (Primary Key)
- PatientID (Foreign Key)
- DonorID (Foreign Key)
- StockID (Foreign Key)
- CrossMatchResult
- CrossMatchDate
- Remarks
- CrossMatchCost
-BloodDonations Table
- DonationID (Primary Key)
- DonorID (Foreign Key)
- PatientID (Foreign Key)
- DonationDateTime
- BGroupID (Foreign Key)
- QuantityInMilliliters
-DonorsArchive Table
- DonorID (Primary Key)
- FirstName
- LastName
- Age
- Gender
- BGroupID (Foreign Key)
- ContactNumber
- Email
- MedicalReport
- HemoglobinLevel
- BloodPressure
- DonarState
- DonarAddress
- LastDonationDate
-Views:
- DonorsView
- AvgCrossMatch
- EncryptedView
-Stored Procedures:
- GetDonorsByState
- spDonorsDetailsByState
- InsertUpdateDeleteOutput
-Triggers:
- trDonorArchiveAfterDeletedFromDonors
- InsteadOfTrigger_AgbCrossMatch
-Functions:
- Scalar Function: fnDonorsCountByState
- Table-Valued Function: fnGetDonorsByState
- Multi-Statement Table-Valued Function:
-fnGetDonorsAndBloodStocksByState
-Here are the bulleted points for the DML statements:
- Insert Data into BloodGroups Table:
- INSERT INTO BloodGroups(BGroupID, GroupName) VALUES (101, 'A+'),
-(102, 'A-'), ...
- Insert Data into Donors Table:
- INSERT INTO Donors (DonorID, FirstName, LastName, Age, Gender,
-BGroupID, ContactNumber, Email, MedicalReport, HemoglobinLevel,
-BloodPressure, DonarState, DonarAddress) VALUES ...
- Insert Data into Patients Table:
- INSERT INTO Patients (PatientID, FirstName, LastName, Age, Gender,
-BGroupID, Disease, ContactNumber, Email, PatientState, PatientAddress,
-MedicalHistory, HemoglobinLevel, BloodPressure) VALUES ...
- Insert Data into BloodBanks Table:
- INSERT INTO BloodBanks (BloodBankID, BloodBankName,
-BloodBankAddress, BloodBankContact) VALUES ...
- Insert Data into BloodStocks Table:
- INSERT INTO BloodStocks (StockID, BGroupID, QuantityInMilliliters,
-ExpiryDate, DonorID) VALUES ...
- Insert Data into CrossMatch Table:
- INSERT INTO CrossMatch (CrossMatchID, PatientID, DonorID, StockID,
-CrossMatchResult, CrossMatchDate, Remarks) VALUES ...
- Insert Data into BloodDonations Table:
- INSERT INTO BloodDonations (DonationID, DonorID, PatientID,
-DonationDateTime, BGroupID, QuantityInMilliliters) VALUES ...
- Retrive Data from BloodGroups Table
- Retrive Data from Donors Table
- Retrive Data from Patients Table
- Retrive Data from BloodStocks Table
- Retrive Data from BloodBanks Table
- Retrive Data from CrossMatch Table
- Retrive Data from BloodDonations Table
- Retrive Only Male Donors
- Retrive all Donors Whoes Blood Group A+/A- or any
- Retrive Donors by his/her state
- Format string data using literal values from Donors table
- Uses of LEFT Function
- Calculate Blood Donation Days
- Find out a Patient by his/her id
- Retrive last 3 Donors
- Uses of BETWEEN keyword JOINING TWO TABLES
- Uses of WilCard JOIN WITH CORRELATION NAMES
- user of group by and rollup clause
- Show Donors from 4 to 8 / USES OF OFFSET AND FETCH NEXT
- justify nonclustered index
- justify updatable view
- justify read only view
- justify encrypted view
- check stored procedure
- Stored procedure by output parameter
- --Check stored procedure for insert / update / delete (DML Statement)
- Select functionality
- INSERT functionality
- UPDATE functionality
- DELETE functionality
- justify after delete trigger
- execution of scaler function
- Example usage of the table-valued function
- Execution usage of the multi-statement function
-Conclusion: The Blood Bank Management System, implemented using SQL DDL and
-DML statements, provides an organized and efficient way to manage blood bank
-operations, donor information, and patient records. The use of a relational database
-ensures data integrity and ease of access for various stakeholders involved in blood
-bank management.
+    <h2>Introduction</h2>
+    <p>The Blood Bank Management System (BBMS) is designed to streamline and manage the various operations of a blood bank efficiently. This system is implemented using a relational database, and the following is a comprehensive case study that covers the database design and the Data Definition Language (DDL) and Data Manipulation Language (DML) statements used in the system.</p>
+
+    <h2>Database Design</h2>
+    <ul>
+        <li>BloodGroups Table:
+            <ul>
+                <li>Holds information about different blood groups.</li>
+                <li>Columns: BGroupID, GroupName.</li>
+            </ul>
+        </li>
+        <li>Donors Table:
+            <ul>
+                <li>Stores details of blood donors.</li>
+                <li>Columns: DonorID, FirstName, LastName, Age, Gender, BGroupID, ContactNumber, Email, MedicalReport, HemoglobinLevel, BloodPressure, DonarState, DonarAddress, LastDonationDate.</li>
+            </ul>
+        </li>
+        <li>Patients Table:
+            <ul>
+                <li>Contains information about patients needing blood.</li>
+                <li>Columns: PatientID, FirstName, LastName, Age, Gender, BGroupID, Disease, ContactNumber, Email, PatientState, PatientAddress, MedicalHistory, HemoglobinLevel, BloodPressure.</li>
+            </ul>
+        </li>
+        <li>BloodBanks Table:
+            <ul>
+                <li>Stores data about different blood banks.</li>
+                <li>Columns: BloodBankID, BloodBankName, BloodBankAddress, BloodBankContact.</li>
+            </ul>
+        </li>
+        <li>BloodStocks Table:
+            <ul>
+                <li>Manages the stock of blood available in the blood bank.</li>
+                <li>Columns: StockID, BGroupID, QuantityInMilliliters, ExpiryDate, DonorID.</li>
+            </ul>
+        </li>
+        <li>CrossMatch Table:
+            <ul>
+                <li>Records cross-matching information between donors and patients.</li>
+                <li>Columns: CrossMatchID, PatientID, DonorID, StockID, CrossMatchResult, CrossMatchDate, Remarks.</li>
+            </ul>
+        </li>
+        <li>BloodDonations Table:
+            <ul>
+                <li>Tracks blood donations made by donors.</li>
+                <li>Columns: DonationID, DonorID, PatientID, DonationDateTime, BGroupID, QuantityInMilliliters.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>DDL Statements</h2>
+    <p>Defines the structure of the database and its tables.</p>
+    <ul>
+        <li>Create Database</li>
+        <li>Create BloodGroups Table</li>
+        <li>Create Donors Table</li>
+        <li>Alter Donors Table</li>
+        <li>Create Patients, BloodBanks, BloodStocks, CrossMatch, and BloodDonations Tables</li>
+        <li>Alter CrossMatch Table</li>
+        <li>Delete a Column from CrossMatch Table</li>
+        <li>Delete a Table</li>
+        <li>Add Non-Clustered Index on BloodDonations Table</li>
+        <li>Create Views</li>
+        <li>Create Stored Procedures</li>
+        <li>Create Triggers</li>
+        <li>Create Functions</li>
+    </ul>
+
+    <h2>DML Statements</h2>
+    <p>Manages the data within the tables.</p>
+    <ul>
+        <li>Insert Data into BloodGroups Table</li>
+        <li>Insert Data into Donors Table</li>
+        <li>Insert Data into Patients Table</li>
+        <li>Insert Data into BloodBanks Table</li>
+        <li>Insert Data into BloodStocks Table</li>
+        <li>Insert Data into CrossMatch Table</li>
+        <li>Insert Data into BloodDonations Table</li>
+        <li>Retrieve Data from BloodGroups Table</li>
+        <li>Retrieve Data from Donors Table</li>
+        <li>Retrieve Data from Patients Table</li>
+        <li>Retrieve Data from BloodStocks Table</li>
+        <li>Retrieve Data from BloodBanks Table</li>
+        <li>Retrieve Data from CrossMatch Table</li>
+        <li>Retrieve Data from BloodDonations Table</li>
+        <li>Retrieve Only Male Donors</li>
+        <li>Retrieve all Donors Whose Blood Group is A+/A- or any</li>
+        <li>Retrieve Donors by their state</li>
+        <li>Format string data using literal values from Donors table</li>
+        <li>Uses of LEFT Function</li>
+        <li>Calculate Blood Donation Days</li>
+        <li>Find out a Patient by their ID</li>
+        <li>Retrieve last 3 Donors</li>
+        <li>Uses of BETWEEN keyword JOINING TWO TABLES</li>
+        <li>Uses of Wildcard JOIN WITH CORRELATION NAMES</li>
+        <li>Use of GROUP BY and ROLLUP Clause</li>
+        <li>Show Donors from 4 to 8 / USES OF OFFSET AND FETCH NEXT</li>
+        <li>Justify Non-Clustered Index</li>
+        <li>Justify Updatable View</li>
+        <li>Justify Read-Only View</li>
+        <li>Justify Encrypted View</li>
+        <li>Check Stored Procedure</li>
+        <li>Stored Procedure by Output Parameter</li>
+        <li>Check Stored Procedure for Insert / Update / Delete (DML Statement)</li>
+        <li>Select Functionality</li>
+        <li>INSERT Functionality</li>
+        <li>UPDATE Functionality</li>
+        <li>DELETE Functionality</li>
+        <li>Justify After Delete Trigger</li>
+        <li>Execution of Scalar Function</li>
+        <li>Example usage of the Table-Valued Function</li>
+        <li>Execution usage of the Multi-Statement Function</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>The Blood Bank Management System, implemented using SQL DDL and DML statements, provides an organized and efficient way to manage blood bank operations, donor information, and patient records. The use of a relational database ensures data integrity and ease of access for various stakeholders involved in blood bank management.</p>
+
+    <p>Thanks and Regards</p>
+    <p>Mohiuddin</p>
+    <p>ID: 1280860</p>
+    <p>Round: 58</p>
+    <p>Subject: C#</p>
+    <p>TSP: SCSL</p>
