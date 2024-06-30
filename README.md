@@ -92,12 +92,8 @@ Manages the data within the tables.
 - Example usage of the Table-Valued Function
 - Execution usage of the Multi-Statement Function
 
-## Conclusion
-The Blood Bank Management System, implemented using SQL DDL and DML statements, provides an organized and efficient way to manage blood bank operations, donor information, and patient records. The use of a relational database ensures data integrity and ease of access for various stakeholders involved in blood bank management.
-
-Thanks and Regards  
-**Mohiuddin**  
-ID: 1280860  
-Round: 58  
-Subject: C#  
-TSP: SCSL
+I am Mohiuddin. Responsive website Design and Full Stack Web Application Developer. I have a Web Development and Digital Marketing Agency Where We will make creative, flexible and affordable websites. Our affordability meets professionalism. We can do PSD to HTML & WordPress Theme, customize your Theme/website, build a child theme for you. I have a strong knowledge about WP Backery & Elementor page builder. I am skilled in on-page SEO and Keyword research. I Completed 112+ Projects of 8+ country's 22+ client's at various marketplaces since 2014. Your satisfaction is my success.
+Contact me to do your Project
+webservice24.org@gmail.com
+Whatsapp: +880 1831332732
+Facebook: facebook.com/wpdeveloper24
